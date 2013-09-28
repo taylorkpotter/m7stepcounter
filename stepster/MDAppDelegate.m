@@ -7,40 +7,69 @@
 //
 
 #import "MDAppDelegate.h"
+#import "MDViewController.h"
+#import <CoreMotion/CoreMotion.h>
 
 @implementation MDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+//    NSLog(@"Did Finish Launching");
+
     return YES;
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+//    NSLog(@"Will Resign Active");
+    // save the current timestamp to query against on re-launch
+    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"resignActiveDate"];
+    [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"missingSteps"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+//    NSLog(@"Did Enter Background");
+
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+//    NSLog(@"Will Enter Foreground");
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    // compare the current time with the stored timestamp and get any steps taken
+    
+    NSDate *resignActiveDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"resignActiveDate"];
+    
+    if ([CMStepCounter isStepCountingAvailable] && resignActiveDate) {
+        NSDate *currentDate = [NSDate date];
+        
+        CMStepCounter *stepCounter = [CMStepCounter new];
+        [stepCounter queryStepCountStartingFrom:resignActiveDate
+                                             to:currentDate
+                                        toQueue:[NSOperationQueue mainQueue]
+                                    withHandler:^(NSInteger numberOfSteps, NSError *error)
+         {
+             [[NSUserDefaults standardUserDefaults] setInteger:numberOfSteps forKey:@"missingSteps"];
+             [[NSUserDefaults standardUserDefaults] synchronize];
+             NSLog(@"Missing Steps: %lu", (long)numberOfSteps);
+             [(MDViewController *)self.window.rootViewController addMissingSteps];
+         }];
+    }
+
+    
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+//    NSLog(@"Will Terminate");
 }
 
 @end

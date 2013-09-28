@@ -10,4 +10,6 @@
 
 @interface MDViewController : UIViewController
 
+- (void)addMissingSteps;
+
 @end

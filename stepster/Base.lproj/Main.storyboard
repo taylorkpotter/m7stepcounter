@@ -1,21 +1,44 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4451" systemVersion="13A461" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4510" systemVersion="13A584" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="kTW-kw-PBo">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3676"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <scenes>
-        <!--class Prefix:identifier View Controller-->
-        <scene sceneID="ufC-wZ-h7g">
+        <!--View Controller - Stepster-->
+        <scene sceneID="LM2-0D-yNH">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="MDViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                <viewController id="kTW-kw-PBo" customClass="MDViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N2B-wT-piM"/>
+                        <viewControllerLayoutGuide type="bottom" id="ls0-Kq-unI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="XKL-qL-mQo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="80     steps" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="rEd-3W-LOa">
+                                <rect key="frame" x="20" y="164" width="280" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="64"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="rEd-3W-LOa" firstAttribute="top" secondItem="N2B-wT-piM" secondAttribute="bottom" constant="144" id="3wp-uL-xeH"/>
+                            <constraint firstItem="rEd-3W-LOa" firstAttribute="leading" secondItem="XKL-qL-mQo" secondAttribute="leading" constant="20" symbolic="YES" id="7jF-BI-YQc"/>
+                            <constraint firstItem="rEd-3W-LOa" firstAttribute="centerY" secondItem="XKL-qL-mQo" secondAttribute="centerY" id="nff-ns-aTP"/>
+                            <constraint firstAttribute="trailing" secondItem="rEd-3W-LOa" secondAttribute="trailing" constant="20" symbolic="YES" id="sSy-XX-w0n"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Stepster" id="hsW-UY-bPr"/>
+                    <connections>
+                        <outlet property="stepCounterLabel" destination="rEd-3W-LOa" id="ATV-7m-Q72"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bQv-Bw-v8c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="1065" y="-142"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

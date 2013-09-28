@@ -21,6 +21,9 @@
 		EFB2FB9317F6382D00F8CBA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FB7517F6382D00F8CBA8 /* UIKit.framework */; };
 		EFB2FB9B17F6382D00F8CBA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFB2FB9917F6382D00F8CBA8 /* InfoPlist.strings */; };
 		EFB2FB9D17F6382D00F8CBA8 /* stepsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB2FB9C17F6382D00F8CBA8 /* stepsterTests.m */; };
+		EFB2FBA717F638B700F8CBA8 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FBA617F638B700F8CBA8 /* GameKit.framework */; };
+		EFB2FBA917F638C000F8CBA8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FBA817F638C000F8CBA8 /* MapKit.framework */; };
+		EFB2FBAB17F63ABB00F8CBA8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FBAA17F63ABB00F8CBA8 /* CoreMotion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,9 @@
 		EFB2FB9817F6382D00F8CBA8 /* stepsterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "stepsterTests-Info.plist"; sourceTree = "<group>"; };
 		EFB2FB9A17F6382D00F8CBA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		EFB2FB9C17F6382D00F8CBA8 /* stepsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stepsterTests.m; sourceTree = "<group>"; };
+		EFB2FBA617F638B700F8CBA8 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		EFB2FBA817F638C000F8CBA8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		EFB2FBAA17F63ABB00F8CBA8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +66,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EFB2FBAB17F63ABB00F8CBA8 /* CoreMotion.framework in Frameworks */,
 				EFB2FB7417F6382D00F8CBA8 /* CoreGraphics.framework in Frameworks */,
 				EFB2FB7617F6382D00F8CBA8 /* UIKit.framework in Frameworks */,
+				EFB2FBA917F638C000F8CBA8 /* MapKit.framework in Frameworks */,
 				EFB2FB7217F6382D00F8CBA8 /* Foundation.framework in Frameworks */,
+				EFB2FBA717F638B700F8CBA8 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +110,9 @@
 		EFB2FB7017F6382D00F8CBA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFB2FBAA17F63ABB00F8CBA8 /* CoreMotion.framework */,
+				EFB2FBA817F638C000F8CBA8 /* MapKit.framework */,
+				EFB2FBA617F638B700F8CBA8 /* GameKit.framework */,
 				EFB2FB7117F6382D00F8CBA8 /* Foundation.framework */,
 				EFB2FB7317F6382D00F8CBA8 /* CoreGraphics.framework */,
 				EFB2FB7517F6382D00F8CBA8 /* UIKit.framework */,
@@ -200,6 +212,20 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Mind DIaper";
 				TargetAttributes = {
+					EFB2FB6D17F6382D00F8CBA8 = {
+						DevelopmentTeam = TX54R8GYX2;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.GameCenter = {
+								enabled = 1;
+							};
+							com.apple.iOS = {
+								enabled = 1;
+							};
+						};
+					};
 					EFB2FB8E17F6382D00F8CBA8 = {
 						TestTargetID = EFB2FB6D17F6382D00F8CBA8;
 					};
@@ -379,10 +405,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stepster/stepster-Prefix.pch";
 				INFOPLIST_FILE = "stepster/stepster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,10 +421,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stepster/stepster-Prefix.pch";
 				INFOPLIST_FILE = "stepster/stepster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

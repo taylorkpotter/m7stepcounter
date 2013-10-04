@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>SchemeUserState</key>
+	<dict>
+		<key>Pods-BounceMenuController.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>Pods-SBTickerView.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
+		<key>Pods.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>3B747E98BA9048248569022A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5B36A87C847442A7A1D2A3A1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7699EA69ED084C76A632183B</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CFA1F3A19F56426289DD321E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
+</dict>
+</plist>

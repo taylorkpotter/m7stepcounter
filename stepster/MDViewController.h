@@ -12,4 +12,6 @@
 
 - (void)addMissingSteps;
 
+@property (nonatomic, weak) IBOutlet UIView *buttonsView;
+
 @end

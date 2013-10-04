@@ -9,14 +9,35 @@
 #import "MDAppDelegate.h"
 #import "MDViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import "BounceMenuController.h"
+
+@interface MDAppDelegate () <BounceMenuControllerDelegate>
+
+@end
 
 @implementation MDAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    // Override point for customization after application launch.
-//    NSLog(@"Did Finish Launching");
-
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    
+    BounceMenuController *bounceMenuController = [[BounceMenuController alloc] init];
+    
+    // create view controllers from code
+    MDViewController* vc1 = [[MDViewController alloc] initWithNibName:@"MDViewController" bundle:nil];
+    vc1.view.backgroundColor = [UIColor colorWithRed:0.21f green:0.33f blue:0.53f alpha:1.00f];
+//    vc1.tabBarItem.image = [UIImage imageNamed:@"tabBar"];
+    
+    
+    // set the view controllers for the bounc menu
+    NSArray* controllers = [NSArray arrayWithObjects:vc1, nil];
+    bounceMenuController.viewControllers = controllers;
+    bounceMenuController.delegate = self;
+    
+    self.window.rootViewController = bounceMenuController;
+    
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 							
@@ -71,5 +92,14 @@
 {
 //    NSLog(@"Will Terminate");
 }
+
+- (BOOL)bouncMenuController:(BounceMenuController *)controller shouldSelectViewController:(UIViewController *)viewController {
+    return YES;
+}
+
+- (void)bouncMenuController:(BounceMenuController *)controller didSelectViewController:(UIViewController *)viewController {
+    NSLog(@"selected view controller: %@", viewController);
+}
+
 
 @end

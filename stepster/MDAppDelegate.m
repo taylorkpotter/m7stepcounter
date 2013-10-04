@@ -69,8 +69,11 @@
     
     NSDate *resignActiveDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"resignActiveDate"];
     
-    if ([CMStepCounter isStepCountingAvailable] && resignActiveDate) {
+    if ([CMStepCounter isStepCountingAvailable]) {
         NSDate *currentDate = [NSDate date];
+        if (!resignActiveDate) {
+            resignActiveDate = [NSDate date];
+        }
         
         CMStepCounter *stepCounter = [CMStepCounter new];
         [stepCounter queryStepCountStartingFrom:resignActiveDate
@@ -81,7 +84,7 @@
              [[NSUserDefaults standardUserDefaults] setInteger:numberOfSteps forKey:@"missingSteps"];
              [[NSUserDefaults standardUserDefaults] synchronize];
              NSLog(@"Missing Steps: %lu", (long)numberOfSteps);
-             [(MDViewController *)self.window.rootViewController addMissingSteps];
+             [(MDViewController*)[[(BounceMenuController *)self.window.rootViewController viewControllers] objectAtIndex:0] addMissingSteps];
          }];
     }
 

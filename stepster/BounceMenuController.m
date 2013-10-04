@@ -298,7 +298,7 @@
     if (!_bannerView) {
         _bannerView = [[ADBannerView alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-50, 320, 50)];
         [_bannerView setDelegate:self];
-        [self.view insertSubview:_bannerView belowSubview:self.menuButton];
+//        [self.view insertSubview:_bannerView belowSubview:self.menuButton];
     }
 }
 

@@ -9,15 +9,14 @@
 #import "MDViewController.h"
 #import "BounceMenuController.h"
 #import <CoreMotion/CoreMotion.h>
+#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface MDViewController () <UIAlertViewDelegate>
-{
-  
-    __weak IBOutlet UILabel *stepCounterLabel;
-    NSOperationQueue *stepsQueue;
-    NSInteger stepsTaken;
-}
+
+@property (nonatomic, strong) NSOperationQueue *stepsQueue;
 @property (nonatomic, strong) CMStepCounter *stepCounter;
+@property (nonatomic, strong) NSNumber *stepsTaken;
+@property (nonatomic, weak) IBOutlet UILabel *stepCounterLabel;
 
 @end
 
@@ -37,10 +36,10 @@
 - (void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if ([[alertView buttonTitleAtIndex:buttonIndex] isEqualToString:@"Reset"]) {
-        [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"stepsTaken"];
+        [[NSUserDefaults standardUserDefaults] setObject:[NSNumber numberWithInt:0] forKey:@"stepsTaken"];
         [[NSUserDefaults standardUserDefaults] synchronize];
-        stepsTaken = [[NSUserDefaults standardUserDefaults] integerForKey:@"stepsTaken"];
-        [stepCounterLabel setText:[NSString stringWithFormat:@"%ld", (long)stepsTaken]];
+        _stepsTaken = [[NSUserDefaults standardUserDefaults] objectForKey:@"stepsTaken"];
+        [_stepCounterLabel setText:[NSString stringWithFormat:@"%d", [_stepsTaken intValue]]];
     }
 }
 
@@ -55,29 +54,61 @@
     [[NSUserDefaults standardUserDefaults] setFloat:g forKey:@"bgG"];
     [[NSUserDefaults standardUserDefaults] setFloat:b forKey:@"bgB"];
     [[NSUserDefaults standardUserDefaults] setFloat:a forKey:@"bgA"];
-    
-//    self.view.backgroundColor = [UIColor colorWithRed:bgR green:bgG blue:bgB alpha:1.f];
-
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+}
+
+- (BOOL)setupStepCounter
+{
     NSLog(@"Did Load");
-    stepsQueue = [[NSOperationQueue alloc] init];
-    
+    _stepsTaken = [[NSUserDefaults standardUserDefaults] objectForKey:@"stepsTaken"];
+    _stepsQueue = [[NSOperationQueue alloc] init];
+    [_stepsQueue setMaxConcurrentOperationCount:2];
+
     if ([CMStepCounter isStepCountingAvailable]) {
         _stepCounter = [[CMStepCounter alloc] init];
+        [_stepCounter startStepCountingUpdatesToQueue:_stepsQueue
+                                             updateOn:5
+                                          withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
+                                              NSDate *resignActiveDate = [[NSUserDefaults standardUserDefaults] objectForKey:@"resignActiveDate"];
+                                              
+                                              CMStepCounter *stepCounter = [CMStepCounter new];
+                                              [stepCounter queryStepCountStartingFrom:resignActiveDate
+                                                                                   to:timestamp
+                                                                              toQueue:_stepsQueue
+                                                                          withHandler:^(NSInteger numberOfSteps, NSError *error)
+                                               {
+                                                   [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                                                       [[NSUserDefaults standardUserDefaults] setInteger:numberOfSteps forKey:@"missingSteps"];
+                                                       [[NSUserDefaults standardUserDefaults] setObject:timestamp forKey:@"resignActiveDate"];
+                                                       [[NSUserDefaults standardUserDefaults] synchronize];
+                                                       NSLog(@"Missing Steps: %lu", (long)numberOfSteps);
+                                                       [self addMissingSteps];
+                                                   }];
+                                               }];
+                                          }];
+        return TRUE;
+    } else {
+        NSLog(@"alert, tell the user to turn on motion if they want to use the app");
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Step Counting Not Available!" message:@"If you turned off Motion Activity in your device's Privacy Settings, please turn it back on to continue.  If you are using a device without Step Counting capabilities, enjoy the background colors." delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertView show];
+        return FALSE;
     }
-    
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    [stepCounterLabel setText:[NSString stringWithFormat:@"%ld", (long)stepsTaken]];
+    if (self.view.frame.size.height < 568) {
+        [_buttonsView.subviews[8] removeFromSuperview];
+    }
+
+    _stepsTaken = [[NSUserDefaults standardUserDefaults] objectForKey:@"stepsTaken"];
+    [_stepCounterLabel setText:[NSString stringWithFormat:@"%d", [_stepsTaken intValue]]];
 
     CGFloat bgR;
     CGFloat bgG;
@@ -95,52 +126,52 @@
         
     }
 
-    
-    NSLog(@"Will Appear");
-    if ([CMStepCounter isStepCountingAvailable]) {
-        [_stepCounter startStepCountingUpdatesToQueue:stepsQueue
-                                             updateOn:1
-                                          withHandler:^(NSInteger numberOfSteps, NSDate *timestamp, NSError *error) {
-                                              if (error) {
-                                                  NSLog(@"Error recording steps: %@", error);
-                                              } else {
-                                                  [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                                                      stepsTaken += numberOfSteps;
-                                                      [[NSUserDefaults standardUserDefaults] setInteger:stepsTaken forKey:@"stepsTaken"];
-                                                      [[NSUserDefaults standardUserDefaults] synchronize];
-                                                      [stepCounterLabel setText:[NSString stringWithFormat:@"%ld", (long)stepsTaken]];
-                                                  }];
-                                              }
-                                              
-                                          }];
-    } else {
-        NSLog(@"alert, tell the user to turn on motion if they want to use the app");
-    }
 }
 
 - (void)addMissingSteps
 {
-//    NSLog(@"adding %lu missing steps", [[NSUserDefaults standardUserDefaults] integerForKey:@"missingSteps"]);
-    
-    stepsTaken = [[NSUserDefaults standardUserDefaults] integerForKey:@"stepsTaken"];
-    NSInteger oldSteps = stepsTaken;
+    if (!_stepCounter) {
+        [self setupStepCounter];
+    }
     NSInteger missingSteps = [[NSUserDefaults standardUserDefaults] integerForKey:@"missingSteps"];
     if (missingSteps > 0) {
-        
-        //        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:[NSString stringWithFormat:@"Missing Steps: %ld", (long)missingSteps] message:nil delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        //        [alertView show];
-        
-        stepsTaken = stepsTaken + missingSteps;
+        NSLog(@"Adding %ld missing steps", missingSteps);
+        [self incrementStepLabelBy:missingSteps];
         [[NSUserDefaults standardUserDefaults] setInteger:0 forKey:@"missingSteps"];
-        [[NSUserDefaults standardUserDefaults] setInteger:stepsTaken forKey:@"stepsTaken"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-    
-    for (int i=oldSteps; i<stepsTaken; i++) {
-        [stepCounterLabel setText:[NSString stringWithFormat:@"%ld", (long)oldSteps+i]];
-    }
-
 }
+
+- (void)incrementStepLabelBy:(NSInteger)count
+{
+    _stepsTaken = [NSNumber numberWithInteger:([_stepsTaken integerValue] + count)];
+    [[NSUserDefaults standardUserDefaults] setObject:_stepsTaken forKey:@"stepsTaken"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
+    NSOperationQueue *labelQueue = [[NSOperationQueue alloc] init];
+    [labelQueue setMaxConcurrentOperationCount:1];
+    
+    int currentCount = [_stepsTaken intValue];
+    NSOperation *updateOperation;
+    
+    for (int i=0; i<count; i++)
+    {
+        updateOperation = [NSBlockOperation blockOperationWithBlock:^{
+            [self updateLabelWithString:[NSString stringWithFormat:@"%d", currentCount + i]];
+        }];
+        
+        [labelQueue addOperations:@[updateOperation] waitUntilFinished:YES];
+    }
+    
+}
+
+- (void)updateLabelWithString:(NSString *)counterString
+{
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [_stepCounterLabel setText:counterString];
+    }];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

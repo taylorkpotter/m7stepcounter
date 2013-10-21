@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4504" systemVersion="13A584" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="4510" systemVersion="13A598" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3734.1"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDViewController">
             <connections>
                 <outlet property="buttonsView" destination="hKy-Ae-Ss7" id="dS3-tL-8v6"/>
                 <outlet property="stepCounterLabel" destination="9lH-A3-gHw" id="e04-6T-QYl"/>
+                <outlet property="storeButton" destination="zF0-qC-gdg" id="Edx-kG-Q8q"/>
                 <outlet property="view" destination="zHd-4u-xkX" id="Owq-sQ-pDI"/>
             </connections>
         </placeholder>
@@ -41,7 +42,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="l9W-Xq-2vW" userLabel="Color1">
-                            <rect key="frame" x="5" y="62" width="40" height="42"/>
+                            <rect key="frame" x="5" y="111" width="40" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.78431379795074463" green="0.38431376218795776" blue="0.34509804844856262" alpha="1" colorSpace="deviceRGB"/>
                             <state key="normal">
@@ -52,7 +53,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="sk2-z7-SgH" userLabel="Color2">
-                            <rect key="frame" x="5" y="112" width="40" height="42"/>
+                            <rect key="frame" x="5" y="161" width="40" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.43921571969985962" green="0.62745100259780884" blue="0.5372549295425415" alpha="1" colorSpace="deviceRGB"/>
                             <state key="normal">
@@ -63,7 +64,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NV2-Ce-yzb" userLabel="Color3">
-                            <rect key="frame" x="5" y="162" width="40" height="42"/>
+                            <rect key="frame" x="5" y="211" width="40" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.87450987100601196" green="0.63529413938522339" blue="0.48235297203063965" alpha="1" colorSpace="deviceRGB"/>
                             <state key="normal">
@@ -74,7 +75,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0wv-gF-TdW" userLabel="Color4">
-                            <rect key="frame" x="5" y="215" width="40" height="42"/>
+                            <rect key="frame" x="5" y="264" width="40" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.82352948188781738" green="0.78039222955703735" blue="0.65098041296005249" alpha="1" colorSpace="deviceRGB"/>
                             <state key="normal">
@@ -85,7 +86,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HDX-pe-kfW" userLabel="Color5">
-                            <rect key="frame" x="5" y="265" width="40" height="42"/>
+                            <rect key="frame" x="5" y="314" width="40" height="42"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" red="0.26666668057441711" green="0.16862745583057404" blue="0.19215688109397888" alpha="1" colorSpace="deviceRGB"/>
                             <state key="normal">
@@ -93,17 +94,6 @@
                             </state>
                             <connections>
                                 <action selector="changeColor:" destination="-1" eventType="touchUpInside" id="vpZ-D5-ZGc"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bJH-WH-z5d" userLabel="Color6">
-                            <rect key="frame" x="5" y="315" width="40" height="42"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" red="0.95294123888015747" green="0.88627457618713379" blue="0.81960791349411011" alpha="1" colorSpace="deviceRGB"/>
-                            <state key="normal">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="changeColor:" destination="-1" eventType="touchUpInside" id="LKh-uM-ixy"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="hNG-9b-w4b" userLabel="Color7">
@@ -128,6 +118,18 @@
                                 <action selector="changeColor:" destination="-1" eventType="touchUpInside" id="rnq-0k-5TC"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zF0-qC-gdg" userLabel="CartButton">
+                            <rect key="frame" x="3" y="61" width="45" height="45"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <inset key="imageEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                            <state key="normal" backgroundImage="cart">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="doInAppPurchase:" destination="-1" eventType="touchUpInside" id="EmA-Tb-AvP"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
@@ -137,6 +139,7 @@
         </view>
     </objects>
     <resources>
+        <image name="cart" width="45" height="45"/>
         <image name="trashCan" width="45" height="47"/>
     </resources>
 </document>

@@ -10,10 +10,12 @@
 #import "BounceMenuController.h"
 #import <ReactiveCocoa/ReactiveCocoa.h>
 
-@interface MDViewController () <UIAlertViewDelegate>
+@interface MDViewController () <UIAlertViewDelegate, SKProductsRequestDelegate>
 
 @property (nonatomic, strong) NSNumber *stepsTaken;
 @property (nonatomic, weak) IBOutlet UILabel *stepCounterLabel;
+@property (nonatomic, weak) IBOutlet UIButton *storeButton;
+@property (nonatomic, strong) NSArray *products;
 
 @end
 
@@ -57,6 +59,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
 }
 
 
@@ -103,5 +106,66 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma StoreKit
+
+- (IBAction)doInAppPurchase:(id)sender
+{
+    NSArray *productIDs = [self productIdentifiers];
+    NSLog(@"Product IDs: %@", productIDs);
+    [self validateProductIdentifiers:productIDs];
+    
+}
+
+- (NSArray *)productIdentifiers
+{
+    NSURL * url = [[NSBundle mainBundle] URLForResource:@"product_ids"
+                                          withExtension:@"plist"];
+    return [NSArray arrayWithContentsOfURL:url];
+}
+
+- (void) validateProductIdentifiers:(NSArray *)productIdentifiers
+{
+    SKProductsRequest *productsRequest = [[SKProductsRequest alloc]
+                                          initWithProductIdentifiers:[NSSet setWithArray:productIdentifiers]];
+    productsRequest.delegate = self;
+    [productsRequest start];
+}
+
+// SKProductsRequestDelegate protocol method
+- (void)productsRequest:(SKProductsRequest *)request
+     didReceiveResponse:(SKProductsResponse *)response
+{
+    self.products = response.products;
+    
+    for (NSString * invalidProductIdentifier in response.invalidProductIdentifiers)
+    {
+        NSLog(@"Invalid Product ID: %@", invalidProductIdentifier);
+    }
+    
+    if (self.products.count > 0) {
+        [self makePurchaseWithProduct:self.products[0]];
+    }
+
+}
+
+- (void)makePurchaseWithProduct:(SKProduct *)product
+{
+    SKPayment *payment = [SKPayment paymentWithProduct:product];
+    [[SKPaymentQueue defaultQueue] addPayment:payment];
+}
+
+- (void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
+{
+    NSLog(@"Updated Transactions");
+    for (SKPaymentTransaction *transaction in transactions) {
+        NSLog(@"Transaction: %ld", (long)transaction.transactionState);
+        if (transaction.transactionState == SKPaymentTransactionStatePurchased) {
+            NSLog(@"Already Purchased");
+            [_storeButton removeFromSuperview];
+        }
+    }
+}
+
 
 @end

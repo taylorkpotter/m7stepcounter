@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <StoreKit/StoreKit.h>
 
-@interface MDViewController : UIViewController
+@interface MDViewController : UIViewController <SKPaymentTransactionObserver>
 
 - (void)incrementStepLabelBy:(NSNumber *)count;
 

@@ -25,8 +25,12 @@
 		EFB2FB9D17F6382D00F8CBA8 /* stepsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB2FB9C17F6382D00F8CBA8 /* stepsterTests.m */; };
 		EFB2FBAB17F63ABB00F8CBA8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FBAA17F63ABB00F8CBA8 /* CoreMotion.framework */; };
 		EFB817D017FDD94D007D5950 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB817CF17FDD94D007D5950 /* iAd.framework */; };
+		EFC593BA1815C0C200E9E2F1 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC593B91815C0C200E9E2F1 /* GameKit.framework */; };
+		EFC593BD1815C0D300E9E2F1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC593BC1815C0D300E9E2F1 /* StoreKit.framework */; };
+		EFC593BF1815C0D900E9E2F1 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC593BE1815C0D900E9E2F1 /* PassKit.framework */; };
+		EFC593C21815CA9500E9E2F1 /* GameKitHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = EFC593C11815CA9500E9E2F1 /* GameKitHelper.m */; };
+		EFC593C41815DA1000E9E2F1 /* product_ids.plist in Resources */ = {isa = PBXBuildFile; fileRef = EFC593C31815DA1000E9E2F1 /* product_ids.plist */; };
 		EFD68F9C17FD4FDC0023DDB8 /* MDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFD68F9B17FD4FDC0023DDB8 /* MDViewController.xib */; };
-		EFFF226417F674150031210A /* SBTickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFF226317F674150031210A /* SBTickView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,9 +70,14 @@
 		EFB2FB9C17F6382D00F8CBA8 /* stepsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stepsterTests.m; sourceTree = "<group>"; };
 		EFB2FBAA17F63ABB00F8CBA8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		EFB817CF17FDD94D007D5950 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
+		EFC593B91815C0C200E9E2F1 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		EFC593BB1815C0CD00E9E2F1 /* stepster.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = stepster.entitlements; sourceTree = "<group>"; };
+		EFC593BC1815C0D300E9E2F1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		EFC593BE1815C0D900E9E2F1 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
+		EFC593C01815CA9500E9E2F1 /* GameKitHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameKitHelper.h; sourceTree = "<group>"; };
+		EFC593C11815CA9500E9E2F1 /* GameKitHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameKitHelper.m; sourceTree = "<group>"; };
+		EFC593C31815DA1000E9E2F1 /* product_ids.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = product_ids.plist; sourceTree = "<group>"; };
 		EFD68F9B17FD4FDC0023DDB8 /* MDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDViewController.xib; sourceTree = "<group>"; };
-		EFFF226217F674150031210A /* SBTickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBTickView.h; sourceTree = "<group>"; };
-		EFFF226317F674150031210A /* SBTickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBTickView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +87,9 @@
 			files = (
 				EFB817D017FDD94D007D5950 /* iAd.framework in Frameworks */,
 				EFB2FBAB17F63ABB00F8CBA8 /* CoreMotion.framework in Frameworks */,
+				EFC593BA1815C0C200E9E2F1 /* GameKit.framework in Frameworks */,
+				EFC593BF1815C0D900E9E2F1 /* PassKit.framework in Frameworks */,
+				EFC593BD1815C0D300E9E2F1 /* StoreKit.framework in Frameworks */,
 				EFB2FB7417F6382D00F8CBA8 /* CoreGraphics.framework in Frameworks */,
 				EFB2FB7617F6382D00F8CBA8 /* UIKit.framework in Frameworks */,
 				EFB2FB7217F6382D00F8CBA8 /* Foundation.framework in Frameworks */,
@@ -101,6 +113,7 @@
 		EFB2FB6517F6382D00F8CBA8 = {
 			isa = PBXGroup;
 			children = (
+				EFC593C31815DA1000E9E2F1 /* product_ids.plist */,
 				EFB2FB7717F6382D00F8CBA8 /* stepster */,
 				EFB2FB9617F6382D00F8CBA8 /* stepsterTests */,
 				EFB2FB7017F6382D00F8CBA8 /* Frameworks */,
@@ -121,6 +134,9 @@
 		EFB2FB7017F6382D00F8CBA8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EFC593BE1815C0D900E9E2F1 /* PassKit.framework */,
+				EFC593BC1815C0D300E9E2F1 /* StoreKit.framework */,
+				EFC593B91815C0C200E9E2F1 /* GameKit.framework */,
 				EFB817CF17FDD94D007D5950 /* iAd.framework */,
 				EFB2FBAA17F63ABB00F8CBA8 /* CoreMotion.framework */,
 				EFB2FB7117F6382D00F8CBA8 /* Foundation.framework */,
@@ -135,6 +151,7 @@
 		EFB2FB7717F6382D00F8CBA8 /* stepster */ = {
 			isa = PBXGroup;
 			children = (
+				EFC593BB1815C0CD00E9E2F1 /* stepster.entitlements */,
 				EF038F1F17FE85A70076BF26 /* BounceMenuController.h */,
 				EF038F2017FE85A70076BF26 /* BounceMenuController.m */,
 				EF038F2217FE85AE0076BF26 /* PlusButton.h */,
@@ -143,11 +160,11 @@
 				EFB2FB8117F6382D00F8CBA8 /* MDAppDelegate.m */,
 				EFB2FB8617F6382D00F8CBA8 /* MDViewController.h */,
 				EFB2FB8717F6382D00F8CBA8 /* MDViewController.m */,
-				EFFF226217F674150031210A /* SBTickView.h */,
-				EFFF226317F674150031210A /* SBTickView.m */,
 				EFB2FB8917F6382D00F8CBA8 /* Images.xcassets */,
 				EFB2FB7817F6382D00F8CBA8 /* Supporting Files */,
 				EFD68F9B17FD4FDC0023DDB8 /* MDViewController.xib */,
+				EFC593C01815CA9500E9E2F1 /* GameKitHelper.h */,
+				EFC593C11815CA9500E9E2F1 /* GameKitHelper.m */,
 			);
 			path = stepster;
 			sourceTree = "<group>";
@@ -241,7 +258,13 @@
 								enabled = 0;
 							};
 							com.apple.GameCenter = {
-								enabled = 0;
+								enabled = 1;
+							};
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+							com.apple.Passbook = {
+								enabled = 1;
 							};
 							com.apple.iOS = {
 								enabled = 0;
@@ -280,6 +303,7 @@
 				EFB2FB8A17F6382D00F8CBA8 /* Images.xcassets in Resources */,
 				EFD68F9C17FD4FDC0023DDB8 /* MDViewController.xib in Resources */,
 				EFB2FB7C17F6382D00F8CBA8 /* InfoPlist.strings in Resources */,
+				EFC593C41815DA1000E9E2F1 /* product_ids.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,9 +358,9 @@
 				EFB2FB7E17F6382D00F8CBA8 /* main.m in Sources */,
 				EF038F2117FE85A70076BF26 /* BounceMenuController.m in Sources */,
 				EFB2FB8817F6382D00F8CBA8 /* MDViewController.m in Sources */,
-				EFFF226417F674150031210A /* SBTickView.m in Sources */,
 				EFB2FB8217F6382D00F8CBA8 /* MDAppDelegate.m in Sources */,
 				EF038F2417FE85AE0076BF26 /* PlusButton.m in Sources */,
+				EFC593C21815CA9500E9E2F1 /* GameKitHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,7 +486,7 @@
 				GCC_PREFIX_HEADER = "stepster/stepster-Prefix.pch";
 				INFOPLIST_FILE = "stepster/stepster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F54DCBFA-B489-4EAF-9AAD-82700CEFD332";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -474,13 +498,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Mind Diaper, LLC";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mind Diaper, LLC";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stepster/stepster-Prefix.pch";
 				INFOPLIST_FILE = "stepster/stepster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "F54DCBFA-B489-4EAF-9AAD-82700CEFD332";
+				PROVISIONING_PROFILE = "";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};

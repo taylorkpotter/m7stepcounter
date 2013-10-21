@@ -7,9 +7,11 @@
 //
 
 #import "MDAppDelegate.h"
-#import "MDViewController.h"
 #import <CoreMotion/CoreMotion.h>
+#import <GameKit/GameKit.h>
+#import "MDViewController.h"
 #import "BounceMenuController.h"
+#import "GameKitHelper.h"
 
 @interface MDAppDelegate () <BounceMenuControllerDelegate>
 
@@ -17,6 +19,7 @@
 @property (nonatomic, strong) CMStepCounter *stepCounter;
 @property (nonatomic, strong) NSNumber *stepsTaken;
 @property (nonatomic, strong) MDViewController* vc1;
+@property (nonatomic, strong) GKScore *scoreReporter;
 
 @end
 
@@ -25,32 +28,37 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    BounceMenuController *bounceMenuController = [[BounceMenuController alloc] init];
     _stepsQueue = [[NSOperationQueue alloc] init];
     
-    // Setup step counting
     [self setupStepCounter];
     
-    // create view controllers from code
+    [self setupViewControllers];
+    
+    [[SKPaymentQueue defaultQueue] addTransactionObserver:_vc1];
+    
+    [self setupGameCenter];
+    
+    [self performSelector:@selector(addSteps:fromInterval:) withObject:nil afterDelay:4.0];
+    
+    return YES;
+}
+
+- (void)setupViewControllers
+{
+    BounceMenuController *bounceMenuController = [[BounceMenuController alloc] init];
     _vc1 = [[MDViewController alloc] initWithNibName:@"MDViewController" bundle:nil];
     _vc1.view.backgroundColor = [UIColor colorWithRed:0.21f green:0.33f blue:0.53f alpha:1.00f];
-    
-    // set the view controllers for the bounce menu
     NSArray* controllers = [NSArray arrayWithObjects:_vc1, nil];
     bounceMenuController.viewControllers = controllers;
     bounceMenuController.delegate = self;
     
     self.window.rootViewController = bounceMenuController;
     [self.window makeKeyAndVisible];
-    
-    [self performSelector:@selector(addSteps:fromInterval:) withObject:nil afterDelay:4.0];
-    
-    return YES;
 }
-							
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
-    NSLog(@"Will Resign Active");
+//    NSLog(@"Will Resign Active");
     // save the current timestamp to query against on re-launch
     [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"resignActiveDate"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -82,13 +90,16 @@
                                         toQueue:_stepsQueue
                                     withHandler:^(NSInteger numberOfSteps, NSError *error)
          {
-             NSLog(@"Adding %lu Steps", numberOfSteps);
+             NSUserDefaults *standard = [NSUserDefaults standardUserDefaults];
+//             NSLog(@"Adding %ld Steps", (long)numberOfSteps);
              
              _stepsTaken = [NSNumber numberWithInteger:numberOfSteps+[_stepsTaken integerValue]];
-             [[NSUserDefaults standardUserDefaults] setObject:_stepsTaken forKey:@"stepsTaken"];
-             [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"resignActiveDate"];
-             [[NSUserDefaults standardUserDefaults] synchronize];
+             [standard setObject:_stepsTaken forKey:@"stepsTaken"];
+             [standard setObject:[NSDate date] forKey:@"resignActiveDate"];
+             [standard synchronize];
              [self performSelectorOnMainThread:@selector(updateLabelWithSteps:) withObject:_stepsTaken waitUntilDone:NO];
+             [self reportScoreToGameCenter:_stepsTaken];
+             
          }];
     }
 }
@@ -101,7 +112,6 @@
 
 - (BOOL)setupStepCounter
 {
-    NSLog(@"Did Load");
     _stepsTaken = [[NSUserDefaults standardUserDefaults] objectForKey:@"stepsTaken"];
     _stepsQueue = [[NSOperationQueue alloc] init];
     
@@ -115,5 +125,37 @@
         return FALSE;
     }
 }
+
+#pragma mark - GameCenter
+
+- (void)setupGameCenter
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(showAuthenticationViewController)
+                                                 name:PresentAuthenticationViewController
+                                               object:nil];
+    [[GameKitHelper sharedGameKitHelper] authenticateLocalPlayer];
+}
+
+- (void)reportScoreToGameCenter:(NSNumber *)score
+{
+    NSString *leaderBoardID = @"com.minddiaper.stepster.stepsLeaderBoard";
+    [[GameKitHelper sharedGameKitHelper] reportScore:score.longValue
+                                    forLeaderboardID:leaderBoardID];    
+}
+
+- (void)showAuthenticationViewController
+{
+    GameKitHelper *gameKitHelper = [GameKitHelper sharedGameKitHelper];
+    [_vc1 presentViewController:gameKitHelper.authenticationViewController
+                       animated:YES
+                     completion:nil];
+}
+
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 
 @end

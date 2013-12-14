@@ -9,7 +9,6 @@
 #import "MDViewController.h"
 #import "BounceMenuController.h"
 #import <CoreMotion/CoreMotion.h>
-#import <ReactiveCocoa/ReactiveCocoa.h>
 
 @interface MDViewController () <UIAlertViewDelegate>
 

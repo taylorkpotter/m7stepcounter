@@ -213,7 +213,7 @@
     self.isAnimating = YES;
     
     // create all of the buttons for each of the view controllers
-    CGFloat buttonStartY = self.view.bounds.size.height - 100;
+//    CGFloat buttonStartY = self.view.bounds.size.height - 100;
     
 //    for (int i = 0; i < self.viewControllers.count; i++) {
 //        

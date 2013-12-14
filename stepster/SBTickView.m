@@ -38,9 +38,7 @@
     [path fill];
     
     [self.titleColor set];
-    [self.title drawInRect:self.bounds withFont:[UIFont boldSystemFontOfSize:_fontSize]
-             lineBreakMode:UILineBreakModeTailTruncation
-                 alignment:UITextAlignmentCenter];  
+    [self.title drawInRect:self.bounds withAttributes:nil];
 }
 
 @end

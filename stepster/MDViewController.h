@@ -10,7 +10,7 @@
 
 @interface MDViewController : UIViewController
 
-- (void)addMissingSteps;
+- (void)incrementStepLabelBy:(NSNumber *)count;
 
 @property (nonatomic, weak) IBOutlet UIView *buttonsView;
 

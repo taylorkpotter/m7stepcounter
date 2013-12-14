@@ -214,7 +214,6 @@
     
     // create all of the buttons for each of the view controllers
 //    CGFloat buttonStartY = self.view.bounds.size.height - 100;
-    
 //    for (int i = 0; i < self.viewControllers.count; i++) {
 //        
 //        UIViewController *viewController = [self.viewControllers objectAtIndex:i];

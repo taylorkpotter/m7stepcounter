@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1760F956D05F4529B4471981 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CF10945E1BAD4F13A3818C49 /* libPods.a */; };
 		EF038F2117FE85A70076BF26 /* BounceMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = EF038F2017FE85A70076BF26 /* BounceMenuController.m */; };
 		EF038F2417FE85AE0076BF26 /* PlusButton.m in Sources */ = {isa = PBXBuildFile; fileRef = EF038F2317FE85AE0076BF26 /* PlusButton.m */; };
 		EFB2FB7217F6382D00F8CBA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FB7117F6382D00F8CBA8 /* Foundation.framework */; };
@@ -17,13 +18,29 @@
 		EFB2FB8217F6382D00F8CBA8 /* MDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB2FB8117F6382D00F8CBA8 /* MDAppDelegate.m */; };
 		EFB2FB8817F6382D00F8CBA8 /* MDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB2FB8717F6382D00F8CBA8 /* MDViewController.m */; };
 		EFB2FB8A17F6382D00F8CBA8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFB2FB8917F6382D00F8CBA8 /* Images.xcassets */; };
+		EFB2FB9117F6382D00F8CBA8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FB9017F6382D00F8CBA8 /* XCTest.framework */; };
+		EFB2FB9217F6382D00F8CBA8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FB7117F6382D00F8CBA8 /* Foundation.framework */; };
+		EFB2FB9317F6382D00F8CBA8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FB7517F6382D00F8CBA8 /* UIKit.framework */; };
+		EFB2FB9B17F6382D00F8CBA8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = EFB2FB9917F6382D00F8CBA8 /* InfoPlist.strings */; };
+		EFB2FB9D17F6382D00F8CBA8 /* stepsterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = EFB2FB9C17F6382D00F8CBA8 /* stepsterTests.m */; };
 		EFB2FBAB17F63ABB00F8CBA8 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB2FBAA17F63ABB00F8CBA8 /* CoreMotion.framework */; };
 		EFB817D017FDD94D007D5950 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EFB817CF17FDD94D007D5950 /* iAd.framework */; };
 		EFD68F9C17FD4FDC0023DDB8 /* MDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EFD68F9B17FD4FDC0023DDB8 /* MDViewController.xib */; };
 		EFFF226417F674150031210A /* SBTickView.m in Sources */ = {isa = PBXBuildFile; fileRef = EFFF226317F674150031210A /* SBTickView.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		EFB2FB9417F6382D00F8CBA8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFB2FB6617F6382D00F8CBA8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFB2FB6D17F6382D00F8CBA8;
+			remoteInfo = stepster;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		CB069DB384F545E68CFCAA2B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		CF10945E1BAD4F13A3818C49 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		EF038F1F17FE85A70076BF26 /* BounceMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BounceMenuController.h; sourceTree = "<group>"; };
 		EF038F2017FE85A70076BF26 /* BounceMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BounceMenuController.m; sourceTree = "<group>"; };
@@ -42,7 +59,11 @@
 		EFB2FB8617F6382D00F8CBA8 /* MDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MDViewController.h; sourceTree = "<group>"; };
 		EFB2FB8717F6382D00F8CBA8 /* MDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MDViewController.m; sourceTree = "<group>"; };
 		EFB2FB8917F6382D00F8CBA8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		EFB2FB8F17F6382D00F8CBA8 /* stepsterTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = stepsterTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFB2FB9017F6382D00F8CBA8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		EFB2FB9817F6382D00F8CBA8 /* stepsterTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "stepsterTests-Info.plist"; sourceTree = "<group>"; };
+		EFB2FB9A17F6382D00F8CBA8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		EFB2FB9C17F6382D00F8CBA8 /* stepsterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = stepsterTests.m; sourceTree = "<group>"; };
 		EFB2FBAA17F63ABB00F8CBA8 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		EFB817CF17FDD94D007D5950 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		EFD68F9B17FD4FDC0023DDB8 /* MDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDViewController.xib; sourceTree = "<group>"; };
@@ -60,6 +81,17 @@
 				EFB2FB7417F6382D00F8CBA8 /* CoreGraphics.framework in Frameworks */,
 				EFB2FB7617F6382D00F8CBA8 /* UIKit.framework in Frameworks */,
 				EFB2FB7217F6382D00F8CBA8 /* Foundation.framework in Frameworks */,
+				1760F956D05F4529B4471981 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFB2FB8C17F6382D00F8CBA8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB2FB9117F6382D00F8CBA8 /* XCTest.framework in Frameworks */,
+				EFB2FB9317F6382D00F8CBA8 /* UIKit.framework in Frameworks */,
+				EFB2FB9217F6382D00F8CBA8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,8 +102,10 @@
 			isa = PBXGroup;
 			children = (
 				EFB2FB7717F6382D00F8CBA8 /* stepster */,
+				EFB2FB9617F6382D00F8CBA8 /* stepsterTests */,
 				EFB2FB7017F6382D00F8CBA8 /* Frameworks */,
 				EFB2FB6F17F6382D00F8CBA8 /* Products */,
+				CB069DB384F545E68CFCAA2B /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -79,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				EFB2FB6E17F6382D00F8CBA8 /* stepster.app */,
+				EFB2FB8F17F6382D00F8CBA8 /* stepsterTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -128,6 +163,24 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EFB2FB9617F6382D00F8CBA8 /* stepsterTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFB2FB9C17F6382D00F8CBA8 /* stepsterTests.m */,
+				EFB2FB9717F6382D00F8CBA8 /* Supporting Files */,
+			);
+			path = stepsterTests;
+			sourceTree = "<group>";
+		};
+		EFB2FB9717F6382D00F8CBA8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFB2FB9817F6382D00F8CBA8 /* stepsterTests-Info.plist */,
+				EFB2FB9917F6382D00F8CBA8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +188,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFB2FBA017F6382D00F8CBA8 /* Build configuration list for PBXNativeTarget "stepster" */;
 			buildPhases = (
+				65459FD6FA74445B996AF078 /* Check Pods Manifest.lock */,
 				EFB2FB6A17F6382D00F8CBA8 /* Sources */,
 				EFB2FB6B17F6382D00F8CBA8 /* Frameworks */,
 				EFB2FB6C17F6382D00F8CBA8 /* Resources */,
+				C461662C57AF420FB39DC3ED /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -147,6 +202,24 @@
 			productName = stepster;
 			productReference = EFB2FB6E17F6382D00F8CBA8 /* stepster.app */;
 			productType = "com.apple.product-type.application";
+		};
+		EFB2FB8E17F6382D00F8CBA8 /* stepsterTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFB2FBA317F6382D00F8CBA8 /* Build configuration list for PBXNativeTarget "stepsterTests" */;
+			buildPhases = (
+				EFB2FB8B17F6382D00F8CBA8 /* Sources */,
+				EFB2FB8C17F6382D00F8CBA8 /* Frameworks */,
+				EFB2FB8D17F6382D00F8CBA8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFB2FB9517F6382D00F8CBA8 /* PBXTargetDependency */,
+			);
+			name = stepsterTests;
+			productName = stepsterTests;
+			productReference = EFB2FB8F17F6382D00F8CBA8 /* stepsterTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -175,6 +248,9 @@
 							};
 						};
 					};
+					EFB2FB8E17F6382D00F8CBA8 = {
+						TestTargetID = EFB2FB6D17F6382D00F8CBA8;
+					};
 				};
 			};
 			buildConfigurationList = EFB2FB6917F6382D00F8CBA8 /* Build configuration list for PBXProject "stepster" */;
@@ -191,6 +267,7 @@
 			projectRoot = "";
 			targets = (
 				EFB2FB6D17F6382D00F8CBA8 /* stepster */,
+				EFB2FB8E17F6382D00F8CBA8 /* stepsterTests */,
 			);
 		};
 /* End PBXProject section */
@@ -206,7 +283,48 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EFB2FB8D17F6382D00F8CBA8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB2FB9B17F6382D00F8CBA8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65459FD6FA74445B996AF078 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C461662C57AF420FB39DC3ED /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFB2FB6A17F6382D00F8CBA8 /* Sources */ = {
@@ -222,13 +340,37 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EFB2FB8B17F6382D00F8CBA8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFB2FB9D17F6382D00F8CBA8 /* stepsterTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFB2FB9517F6382D00F8CBA8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFB2FB6D17F6382D00F8CBA8 /* stepster */;
+			targetProxy = EFB2FB9417F6382D00F8CBA8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		EFB2FB7A17F6382D00F8CBA8 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EFB2FB7B17F6382D00F8CBA8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		EFB2FB9917F6382D00F8CBA8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFB2FB9A17F6382D00F8CBA8 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -310,6 +452,7 @@
 		};
 		EFB2FBA117F6382D00F8CBA8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB069DB384F545E68CFCAA2B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -319,7 +462,7 @@
 				GCC_PREFIX_HEADER = "stepster/stepster-Prefix.pch";
 				INFOPLIST_FILE = "stepster/stepster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "F54DCBFA-B489-4EAF-9AAD-82700CEFD332";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
 			};
@@ -327,18 +470,61 @@
 		};
 		EFB2FBA217F6382D00F8CBA8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB069DB384F545E68CFCAA2B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Mind Diaper, LLC";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Mind Diaper, LLC";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "stepster/stepster-Prefix.pch";
 				INFOPLIST_FILE = "stepster/stepster-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "F54DCBFA-B489-4EAF-9AAD-82700CEFD332";
 				VALID_ARCHS = "arm64 armv7s armv7";
 				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		EFB2FBA417F6382D00F8CBA8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/stepster.app/stepster";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "stepster/stepster-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "stepsterTests/stepsterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		EFB2FBA517F6382D00F8CBA8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/stepster.app/stepster";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "stepster/stepster-Prefix.pch";
+				INFOPLIST_FILE = "stepsterTests/stepsterTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -359,6 +545,15 @@
 			buildConfigurations = (
 				EFB2FBA117F6382D00F8CBA8 /* Debug */,
 				EFB2FBA217F6382D00F8CBA8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFB2FBA317F6382D00F8CBA8 /* Build configuration list for PBXNativeTarget "stepsterTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFB2FBA417F6382D00F8CBA8 /* Debug */,
+				EFB2FBA517F6382D00F8CBA8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
